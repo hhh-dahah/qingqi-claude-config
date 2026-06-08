@@ -23,14 +23,14 @@ function HasCommand([string]$Name) {
   return $null -ne (Get-Command $Name -ErrorAction SilentlyContinue)
 }
 
-function RunCmd([string]$Label, [string]$File, [string[]]$Args, [switch]$AllowFailure) {
-  $cmdText = "$File $($Args -join ' ')"
+function RunCmd([string]$Label, [string]$File, [string[]]$CommandArgs, [switch]$AllowFailure) {
+  $cmdText = "$File $($CommandArgs -join ' ')"
   if ($DryRun) {
     Write-Host "[dry-run] $Label`: $cmdText"
     return
   }
   Write-Host "$Label`: $cmdText"
-  & $File @Args
+  & $File @CommandArgs
   $code = $LASTEXITCODE
   if ($code -ne 0) {
     if ($AllowFailure) {
