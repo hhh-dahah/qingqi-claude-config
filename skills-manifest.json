@@ -1,0 +1,35 @@
+﻿{
+  "name": "qingqi-claude-config",
+  "version": "0.1.0",
+  "installMode": "all-team-members-are-owners",
+  "claudePlugins": [
+    "superpowers@claude-plugins-official",
+    "code-review@claude-plugins-official",
+    "security-guidance@claude-plugins-official",
+    "typescript-lsp@claude-plugins-official",
+    "pyright-lsp@claude-plugins-official",
+    "playwright@claude-plugins-official",
+    "commit-commands@claude-plugins-official",
+    "frontend-design@claude-plugins-official",
+    "chrome-devtools-mcp@chrome-devtools-plugins",
+    "figma@claude-plugins-official",
+    "github@claude-plugins-official"
+  ],
+  "skills": {
+    "minimax": [
+      "minimax-docx",
+      "minimax-xlsx",
+      "minimax-pdf",
+      "pptx-generator",
+      "vision-analysis"
+    ],
+    "taste": [
+      "design-taste-frontend"
+    ]
+  },
+  "security": {
+    "neverRead": [".env", "*.pem", "*.key"],
+    "neverPrint": ["token", "api_key", "connection_string", "private_key"],
+    "secretsPolicy": "Use local environment variables or provider consoles only. Do not commit secrets."
+  }
+}
